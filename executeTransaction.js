@@ -13,12 +13,15 @@ const newcontract = new ethers.Contract("0x2Eb082B375B8BA0AaE5192142a7eCE2B8ec73
 
 //abis:
 async function main () {
+  const gasPrice = BigNumber.from("30000000000");
 
   const contractSigner = await newcontract.connect(connectedWallet);
   const tokensMinted = await contractSigner._tokenIds();
   console.log("Tokens mintados: " + tokensMinted);
   if(tokensMinted === 333) return;
-  const transaction = await contractSigner.mintNFTOwner(3);
+  const transaction = await contractSigner.mintNFTOwner(3, {
+    gasPrice: gasPrice, // Ajuste o preço do gás para 30 gweis
+  });
 
   console.log(transaction)
   next();
