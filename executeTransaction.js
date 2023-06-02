@@ -13,8 +13,8 @@ const newcontract = new ethers.Contract("0x2Eb082B375B8BA0AaE5192142a7eCE2B8ec73
 
 //abis:
 async function main () {
-  const gasPrice = BigNumber.from("30000000000");
-  const gasLimit = BigNumber.from("200000"); // Defina um valor adequado para o limite de gás
+  const gasPrice = BigNumber.from("110000000000");
+  const gasLimit = BigNumber.from("300000"); // Defina um valor adequado para o limite de gás
 
   const contractSigner = await newcontract.connect(connectedWallet);
   const tokensMinted = await contractSigner._tokenIds();
